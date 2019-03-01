@@ -1,83 +1,15 @@
 import * as React from 'react';
+import profilePic from '../../../assets/images/profile_img.jpg'
 require('./index.scss');
 
 
-// const ReactMarkdown = require('react-markdown')
+const StayTuned = () =>
+  <div id='stay-tuned-wrapper'>
+    <h1 id='stay-tuned-greeter'>UNDER CONSTRUCTION! PLEASE STAY TUNED!</h1>
+    <img id='stay-tuned-pic'src={profilePic} alt="profile-pic"/>
 
+    <p id='stay-tuned-content'>Hello, my name is Dave Leo Shilander, and I am a full-stack web developer. You are currently viewing a placeholder page for my portfolio. You can follow the code <a href="https://github.com/RaptorCentauri/portfolio-alpha">here</a>. Or click <a href="https://github.com/RaptorCentauri/">here</a> for my Github profile. If you have any questions please feel free to <a href="mailto:dave.leo.shilander@icloud.com">Email Me</a>.I hope that you'll check back soon! Exciting things are coming!</p>
+  </div>
 
-
-
-class StayTuned extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      currentIndex: 0,
-      arr: this.props.arr
-    }
-    console.log(this.state)
-  }
-
-  handleNextClick = () =>{
-      if (this.state.currentIndex < (this.state.arr.length-1)) {
-          this.setState({ currentIndex: this.state.currentIndex + 1 });
-      } else {
-          this.setState({ currentIndex: 0});
-      }
-  }
-
-
-
-
-
-  handlePrevClick = () => {
-      if (this.state.currentIndex === 0) {
-          this.setState({currentIndex: this.state.arr.length-1 });
-      } else {
-          this.setState({currentIndex: this.state.currentIndex - 1 });
-      }
-  }
-
-  componentDidMount() {
-    console.log('port mojnt');
-    // window.addEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
-    let newArr = this.state.arr
-
-
-    let begin = newArr.shift()
-    newArr.push(begin)
-    // newArr.unshift('xyz')
-    // console.log('gn', begin);
-
-    // console.log('newArrAFTER', newArr);
-
-    this.setState({arr: newArr})
-
-
-
-  }
-
-  // setIndex = () =>{
-  //
-  // }
-
-
-
-
-  render(){
-    return(
-      <div className='portfolio-wrapper'>
-        <h1>UNDER CONSTRUCTION! PLEASE STAY TUNED!</h1>
-
-
-
-
-      </div>
-    )
-  }
-
-}
 
 export default StayTuned;
