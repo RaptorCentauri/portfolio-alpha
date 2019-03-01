@@ -1,0 +1,50 @@
+.contact-styles{
+    // background: blue;
+        @media only screen and (max-width: 640px) {
+            padding-top:50px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        form{
+            @media only screen and (max-width: 640px) {
+                // background: greenyellow;
+                height: 50vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+
+            }
+
+            input{
+                @media only screen and (max-width: 640px) {
+                    // border: 1px solid red;
+                    height: 2.5em;
+                    width: 90vw;
+                }
+            }
+
+            textarea{
+                resize: none;
+                @media only screen and (max-width: 640px) {
+                    width: 90vw;
+                }
+            }
+
+            button{
+                @media only screen and (max-width: 640px) {
+                   align-self: flex-end;
+                   height: 3em;
+                   width: 5em;
+                }
+            }
+
+        }
+
+
+
+}

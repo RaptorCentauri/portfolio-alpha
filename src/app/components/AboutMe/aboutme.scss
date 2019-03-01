@@ -1,0 +1,27 @@
+.aboutme-styles{
+    display: flex;
+    @media only screen and (max-width: 640px) {
+            padding: 35px 0;
+            flex-direction: column;
+            
+    }
+
+    img {
+        width: 50vw;
+        height: auto;
+
+        @media only screen and (max-width: 640px) {
+            height: auto;
+            min-width: 100vw;
+        }
+
+    }
+
+}
+
+#aboutme-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,19 @@
+@import '../../styles/colors.scss';
+@import '../../styles/dimensions.scss';
+
+
+.titlebar-styles{
+    display: none;
+        @media only screen and (max-width: 640px) {
+            height: $titlebar-height;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            top: 0;
+            position: fixed;
+            color: $nav-bar-link-hover;
+            background: $topbar-color;
+            font-size: 2em;
+        }
+    }
