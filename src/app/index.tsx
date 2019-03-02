@@ -100,8 +100,8 @@ class App extends React.Component{
                 {/* <TitlebarMobile title={this.state.activeWindow}/> */}
                 {/* {this.renderMain(this.state.activeWindow)} */}
                 {/* <Navbar setActiveWindow={this.setActiveWindow}/> */}
-                {/* <Portfolio arr={this.state.projects}/> */}
-              <StayTuned />
+                <Portfolio arr={this.state.projects}/>
+              {/* <StayTuned /> */}
 
             </div>
         );
