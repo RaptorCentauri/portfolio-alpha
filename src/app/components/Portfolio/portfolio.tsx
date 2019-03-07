@@ -46,7 +46,7 @@ class Portfolio extends React.Component{
     return(
       <div className='portfolio-wrapper'>
            <div id='portfolio-main'>
-              {this.state.arr.map(e => <PortfolioCard pic={e.pic} name={e.name} code={e.code} about={e.about}/>)}
+              {this.state.arr.map(e => <PortfolioCard site={e.site} pic={e.pic} name={e.name} code={e.code} about={e.about}/>)}
            </div>
       </div>
     )
