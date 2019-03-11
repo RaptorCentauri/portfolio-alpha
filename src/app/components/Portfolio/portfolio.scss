@@ -1,42 +1,53 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/dimensions.scss';
 
+
+@mixin layout-square{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 325px);
+  // grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: auto;
+  grid-gap: 1em;
+
+  // grid-row-gap: auto;
+  // justify-items:center;
+  // display: flex;
+  // justify-content: center;
+  align-items: center;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+}
+
+
 .portfolio-wrapper{
-        // @media only screen and (max-width: 640px) {
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: center;
-        // }
+  @include layout-square;
+
+
         background-color: yellow;
-        // margin: 0 25px;
-        // width: 100vw;
-        width: 1000px;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+        width: 100vw;
+
+
+        @media screen and (max-width: 600px) {
+          // grid-template-columns: 1fr;
+          height: 100vh;
+          // justify-items: center;
+        background-color: olive;
+}
 
 
 
-        //
-        //
-        // #portfolio-nav{
-        //   background-color: pink;
-        //   grid-area: portfolio-nav;
-        //   align-self: end;
-        //   height: 50px;
-        // display: flex;
-        // justify-content: space-around;
-        // align-items: center;
-        // }
-        //
-        //
-        // // .portfolio-technologies{
-        // //     @media only screen and (max-width: 640px) {
-        // //         display: flex;
-        // //         justify-content: center;
-        // //         align-items: center;
-        // //         border-top: 1px solid rgb(124, 124, 124);
-        // //         height: 50px;
-        // //     }
-        // // }
+@media only screen
+    and (width : 375px)
+    and (height : 635px)
+    and (orientation : portrait)
+    and (-webkit-device-pixel-ratio : 3) {
+      background-color: red;
+      width: 100vw
+
+
+     }
+
+
+
+
     }

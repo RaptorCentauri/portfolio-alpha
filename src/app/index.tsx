@@ -1,24 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-require ('./index.scss');
-// import './index.scss'
+import './index.scss'
 import {projects} from '../assets/projects'
-
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// // import { faIgloo, faCoffee } from '@fortawesome/free-solid-svg-icons'
-//
-// import {
-//   faAngellist,
-//   faMedium,
-//   faTwitter,
-// } from '@fortawesome/fontawesome-free-brands'
-//
-
-// library.add(faTwitter)
-// library.add(faCoffee)
-
-
 
 import {Navbar, Portfolio, StayTuned} from './components'
 
@@ -27,7 +10,6 @@ class App extends React.Component{
         activeWindow: 'About Me',
         currentIndex: 0,
         projects
-        // projects: projects
     }
 
     // componentDidMount(){
@@ -36,25 +18,7 @@ class App extends React.Component{
 
     setActiveWindow = (str) => {
         this.setState({activeWindow: str})
-
     }
-
-
-    // handleNextClick = () =>{
-    //     if (this.state.currentIndex < (this.state.tempArray.length-1)) {
-    //         this.setState({ currentIndex: this.state.currentIndex + 1 });
-    //     } else {
-    //         this.setState({ currentIndex: 0});
-    //     }
-    // }
-
-    // handlePrevClick = () => {
-    //     if (this.state.currentIndex === 0) {
-    //         this.setState({ currentIndex: this.state.tempArray.length-1 });
-    //     } else {
-    //         this.setState({ currentIndex: this.state.currentIndex - 1 });
-    //     }
-    // }
 
     // testConnections = () => {
     //     API.getBlogPosts();
@@ -99,7 +63,7 @@ class App extends React.Component{
             <div>
                 {/* <TitlebarMobile title={this.state.activeWindow}/> */}
                 {/* {this.renderMain(this.state.activeWindow)} */}
-                {/* <Navbar setActiveWindow={this.setActiveWindow}/> */}
+                <Navbar setActiveWindow={this.setActiveWindow}/>
                 <Portfolio arr={this.state.projects}/>
               {/* <StayTuned /> */}
 
