@@ -4,32 +4,49 @@ require('./index.scss');
 import {gitpic} from '../../../assets/devIcons'
 
 
-
 class PortfolioCard extends React.Component{
-
   constructor(props){
     super(props)
     this.state = {
-      visible: false
+      showAbout: false
     }
   }
 
+changeVisible = () => this.state.showAbout ? this.setState({showAbout: false}) : this.setState({showAbout: true})
 
-changeVisible = () => this.state.visible ? this.setState({visible: false}) : this.setState({visible: true})
 
+front = () =>{
+  const {pic, name} = this.props
+
+  return(
+    <div className='simpleInfo'>
+          <img id='portfolio-pic' src={pic} />
+          <h1 id='project-title'>{name}</h1>
+    </div>
+  )
+}
+
+
+back = () => {
+  const {about, code, site} = this.props
+
+  return(
+    <div className='backInfo'>
+      <h2 className="project-description">{about}</h2>
+      <a className="project-site" href={site} target="_blank">Site</a>
+      <a className="project-source" href={code} target="_blank">Code</a>
+    </div>
+  )
+
+}
 
 
 render(){
-  const {visible} = this.state
-  const {pic, site, name, code, about} = this.props
+  const {showAbout} = this.state
 
   return(
-    <div  onClick={this.changeVisible} className='cardStyle'>
-      <div className='simpleInfo'>
-        <img id='portfolio-pic' src={pic} />
-        <h1 id='project-title'><a href={site} target="_blank">{name}</a><a href={code} target="_blank"><img id="project-link-git" src={gitpic}/></a></h1>
-      </div>
-      {visible ? <h2 id="project-description">{about}</h2> : null}
+    <div  onMouseEnter={this.changeVisible}  onMouseLeave={this.changeVisible} className='cardStyle'>
+      {showAbout ? this.back() : this.front()}
     </div>
   )
 }

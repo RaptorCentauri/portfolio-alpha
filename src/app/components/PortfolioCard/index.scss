@@ -14,87 +14,103 @@
         }
 
 
-        @mixin simple{
-          // height: 100px;
-          display: flex;
-          background-color: orange;
-          justify-content: space-between;
-          align-items: center;
+        @mixin linkStyles{
+          text-decoration: none;
+          color: black;
         }
 
 
-        @mixin square-layout{
-          height: 300px;
-          width: 300px;
+        @mixin simple{
           display: grid;
-          grid-template-rows: 1fr 1fr 2fr;
+          grid-template-rows: auto auto;
+          grid-row-gap: 15px;
+          padding: 15px;
           grid-template-areas:
           "portfolio-pic"
           "project-title"
-          "project-description";
-
-          justify-items: center;
         }
 
+        @mixin backSimple{
+          // overflow-y: auto;
+
+          // background-color: orange;
+          height: 100%;
+          display: grid;
+          grid-template-rows: 3fr 1.5em 1.5em;
+          // // grid-row-gap: 15px;
+          padding: 15px;
+          box-sizing: border-box;
+          grid-template-areas:
+          "project-description"
+          "project-site"
+          "project-source"
+        }
+
+
         .cardStyle{
+            height: 325px;
+            width: 325px;
+            // border: 3px solid #000;
+            box-sizing: border-box;
+
           .simpleInfo{
             @include simple;
           }
 
+          .backInfo{
+            @include backSimple
+          }
+
           background-color: #F5F5F5;
-          border: 1px solid #979797;
-          box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.46);
-
-          // @include square-layout;
-          // @include rectangle-layout;
-
-
-          @media only screen
-    and (device-width : 375px)
-    and (device-height : 812px)
-    and (-webkit-device-pixel-ratio : 3) {
-      @include rectangle-layout;
-    // background-color: yellow;
-
-    }
-
+          box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
 
             #project-title{
               grid-area: project-title;
+              justify-self: center;
+              // align-self: center;
               font-size: 1.5em;
-              a{
-                  text-decoration: none;
-                  color: black;
-              }
-
-
             }
 
-            #project-description{
-              background-color: yellowgreen;
-              // width: 100vw;
-              // display: none;
-              // grid-area: project-description;
-              // overflow-y: auto;
+            .project-description{
+              display: flex;
+              justify-content: center;
+              align-items: start;
+              background-color: grey;
+              height: 100%;
+              width: 100%;
             }
 
 
 
             #portfolio-pic{
-              // margin: 0;
-              // border: 2px solid black;
+              border: 1px solid black;
+              justify-self: center;
+              align-self: center;
               grid-area: portfolio-pic;
               width: auto;
-              height: 85px;
+              height: 185px;
             }
 
 
-            #project-link-git{
-              display: none;
-              height: 32px;
-              background-color: white;
-              grid-area: project-link-git;
-            }
+          .project-source{
+            grid-area: project-source;
+            @include linkStyles
+          }
+
+          .project-site{
+            grid-area: project-site;
+            @include linkStyles
+
+          }
+
+
+
+            // #project-link-git{
+            //   display: none;
+            //   height: 32px;
+            //   background-color: white;
+            //   grid-area: project-link-git;
+            // }
 
 
 
