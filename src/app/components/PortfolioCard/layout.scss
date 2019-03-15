@@ -68,8 +68,8 @@
 
 @mixin desktop-layout($side){
   background-color: red;
-  height: 325px;
-  width: 325px;
+  // height: 325px;
+  // width: 325px;
   // min-height: 325px;
   // min-width: 325px;
   box-sizing: border-box;
@@ -86,6 +86,9 @@
 
   @else if $side == 'back'{
     background-color: yellow;
+    // height: 500px;
+    // width: 500px;
+
     // min-height: 325px;
     // min-width: 325px;
     // $val: calc(height: auto)
@@ -99,13 +102,16 @@
     grid-template-rows: 10fr 1fr;
     grid-template-areas:
     "project-description project-description project-description"
-    // "... project-site ..."
     "project-site project-source project-btn";
   }
 }
 
 @mixin desktop-large-layout($side){
+  align-self: center;
+  justify-self: center;
   @if $side == 'front'{
+    background-color: rgb(156, 241, 86);
+
     grid-template-rows: auto auto;
     grid-row-gap: 15px;
     padding: 15px;
@@ -117,14 +123,22 @@
     box-sizing: border-box;
   }
   @else if $side == 'back'{
-    grid-template-rows: 3fr 1.5em 1.5em;
-    padding: 15px;
+    background-color: blue;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 10fr auto;
     grid-template-areas:
-    "project-description"
-    "project-site"
-    "project-source";
-    height: 325px;
-    width: 325px;
+    "project-description project-description project-description"
+    "project-site project-source project-btn";
+    min-height: 325px;
+    min-width: 325px;
+    // height: max-content;
+    // width: max-content;
+    // $unitX: 683.5788176940534px;
+    // padding: 15px;
+    //
+    //
+    // height: $unitX;
+    // width: $unitX;
     box-sizing: border-box;
   }
 }

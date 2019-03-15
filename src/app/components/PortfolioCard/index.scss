@@ -32,6 +32,8 @@
 
 
 .cardFront{
+  // align-self: center;
+  // justify-self: center;
   background-color: #F5F5F5;
   box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
   display: grid;
@@ -96,11 +98,29 @@
 
 }
 
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
     .cardBack{
       background-color: #F5F5F5;
       box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
         display: grid;
-        height: 100%;
+        // height: 100%;
         box-sizing: border-box;
 
       @include breakpoint(phone){
@@ -129,15 +149,29 @@
         @include infoButton;
       }
 
+
+
+
         .project-description{
-            grid-area: project-description;
-            background-color: orange;
-          align-self: center;
+          // $unit: 683.5788176940534px;
+          // width: $unit;
+          // height: $unit;
+          // width: fit-content;
+          grid-area: project-description;
+          background-color: rgba(92, 173, 92, 0.52);
+          // align-self: center;
           justify-self: center;
 
           font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
          font-weight: 300;
          font-size: 0.80em;
+
+          // overflow-y: scroll;
+
+         // @include breakpoint(desktop-large){
+         //   @include aspect-ratio(1, 1);
+         // }
+
         }
 
         .project-source{
