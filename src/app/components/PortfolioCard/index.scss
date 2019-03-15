@@ -13,16 +13,15 @@
 
 @mixin linkStyles($gridArea, $icon){
   text-decoration: none;
-  justify-self: center;
-  align-self: center;
+  // justify-self: end;
+  // align-self: center;
   grid-area: $gridArea;
-  // @include breakpoint(phone){
     @include mobileIcon($icon)
-  // }
 }
 
 
 @mixin infoButton{
+
   border: none;
   background: none;
   color: rgb(153, 153, 153);
@@ -99,23 +98,6 @@
 }
 
 
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-
     .cardBack{
       background-color: #F5F5F5;
       box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
@@ -145,41 +127,47 @@
 
 
       .info-button{
-        grid-area: project-btn;
+        // grid-area: project-btn;
+        // align-self: center;
+        // justify-self: end;
         @include infoButton;
+        padding: 0 15px;
       }
 
 
+      .navwrapper{
+        // align-self: center;
+        // background-color: pink;
+        display: flex;
+        // justify-content: flex-end;
+        height: 25px;
+      }
 
 
         .project-description{
-          // $unit: 683.5788176940534px;
-          // width: $unit;
-          // height: $unit;
-          // width: fit-content;
           grid-area: project-description;
-          background-color: rgba(92, 173, 92, 0.52);
-          // align-self: center;
           justify-self: center;
 
           font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
          font-weight: 300;
          font-size: 0.80em;
 
-          // overflow-y: scroll;
-
-         // @include breakpoint(desktop-large){
-         //   @include aspect-ratio(1, 1);
-         // }
+          overflow-y: scroll;
 
         }
 
+
+
         .project-source{
-          @include linkStyles(project-source, './github-512.png')
+          // @include linkStyles(project-source, './github-512.png')
+          @include linkStyles(project-btn, './github-512.png')
+
         }
 
         .project-site{
-          @include linkStyles(project-site, './web-icon.png')
+          // @include linkStyles(project-site, './web-icon.png')
+          @include linkStyles(project-btn, './web-icon.png')
+
         }
 
     }
