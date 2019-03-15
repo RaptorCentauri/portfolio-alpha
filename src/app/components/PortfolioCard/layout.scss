@@ -107,42 +107,27 @@
 }
 
 @mixin desktop-large-layout($side){
+  display: grid;
   align-self: center;
   justify-self: center;
   @if $side == 'front'{
-    grid-template-rows: 3fr 1fr;
-    // grid-row-gap: 15px;
-    // padding: 15px;
+    grid-template-rows: 1fr 10fr;
     grid-template-areas:
-    "portfolio-pic "
-    "project-title project-btn";
+    "nav-wrap"
+    "portfolio-pic ";
     height: 325px;
     width: 325px;
     box-sizing: border-box;
   }
   @else if $side == 'back'{
-    // background-color: rgb(128, 233, 211);
-    // grid-template-columns: 1fr 10fr 1fr;
     grid-template-columns:10fr;
-
     grid-template-rows: 1fr 10fr;
     grid-template-areas:
     "nav-wrap"
     "project-description";
-
-
-    // "project-site project-source project-btn";
     min-height: 325px;
     min-width: 325px;
 
-    // height: max-content;
-    // width: max-content;
-    // $unitX: 683.5788176940534px;
-    // padding: 15px;
-    //
-    //
-    // height: $unitX;
-    // width: $unitX;
     box-sizing: border-box;
   }
 }

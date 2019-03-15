@@ -1,41 +1,43 @@
 @import '../../styles/mediaQueries.scss';
 @import './layout.scss';
 
-@mixin mobileIcon($path){
+@mixin buttonGraphic($path){
   background-image: url($path);
   background-repeat: no-repeat;
-    background-size: contain;
-    color:rgba(0,0,0,0);
-    align-self: center;
-}
-
-
-
-@mixin linkStyles($gridArea, $icon){
+  background-size: contain;
+  color:rgba(0,0,0,0);
   text-decoration: none;
-  // justify-self: end;
-  // align-self: center;
-  grid-area: $gridArea;
-    @include mobileIcon($icon)
 }
 
-
-@mixin infoButton{
-
-  border: none;
-  background: none;
-  color: rgb(153, 153, 153);
-  font-style: italic;
-  font-weight: bolder;
+@mixin CardStyle{
+  background-color: #F5F5F5;
+  box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
+  box-sizing: border-box;
 }
+
+@mixin CardTitleStyle{
+  justify-content: space-between;
+  display: flex;
+}
+
+.project-title{
+  font-size: 1.25em;
+    flex-grow: 1;
+    order: -1;
+
+  @include breakpoint(phone){
+    justify-self: start;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 500;
+   font-size: 1em;
+  }
+}
+
 
 
 .cardFront{
-  // align-self: center;
-  // justify-self: center;
-  background-color: #F5F5F5;
-  box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
-  display: grid;
+  @include CardStyle;
+
 
   @include breakpoint(phone){
     @include phone-layout('front')
@@ -59,13 +61,7 @@
 
 
 
-  .info-button{
-    grid-area: project-btn;
-    @include infoButton;
-
-  }
-
-  #portfolio-pic{
+  .portfolio-pic{
     border: 1px solid black;
     justify-self: center;
     align-self: center;
@@ -79,31 +75,35 @@
   }
 
 
-  #project-title{
-    grid-area: project-title;
-    align-self: center;
+  .project-description{
+    display: none;
+  }
 
-    justify-self: center;
-    font-size: 1.25em;
+  .navwrapper{
+    @include CardTitleStyle
 
-    @include breakpoint(phone){
-      justify-self: start;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-     font-weight: 500;
-     font-size: 1em;
+    .project-site{
+      display: none;
+    }
+    .project-source{
+      display: none;
     }
 
+    .info-button{
+      order: 1;
+      @include buttonGraphic('./info-icon.png')
+    }
   }
 
 }
 
 
     .cardBack{
-      background-color: #F5F5F5;
-      box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
-        display: grid;
-        // height: 100%;
-        box-sizing: border-box;
+      @include CardStyle;
+
+      .portfolio-pic{
+        display: none;
+      }
 
       @include breakpoint(phone){
         @include phone-layout('back');
@@ -126,48 +126,35 @@
       }
 
 
-      .info-button{
-        // grid-area: project-btn;
-        // align-self: center;
-        // justify-self: end;
-        @include infoButton;
-        padding: 0 15px;
+      .project-description{
+        grid-area: project-description;
+        justify-self: center;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        font-size: 0.80em;
+        overflow-y: scroll;
       }
 
 
       .navwrapper{
-        // align-self: center;
-        // background-color: pink;
-        display: flex;
-        // justify-content: flex-end;
-        height: 25px;
-      }
+        @include CardTitleStyle;
 
 
-        .project-description{
-          grid-area: project-description;
-          justify-self: center;
-
-          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-         font-weight: 300;
-         font-size: 0.80em;
-
-          overflow-y: scroll;
-
+        .info-button{
+          order: 2;
+          @include buttonGraphic('./info-icon.png')
         }
 
-
-
         .project-source{
-          // @include linkStyles(project-source, './github-512.png')
-          @include linkStyles(project-btn, './github-512.png')
-
+          @include buttonGraphic('./github-512.png')
         }
 
         .project-site{
-          // @include linkStyles(project-site, './web-icon.png')
-          @include linkStyles(project-btn, './web-icon.png')
-
+          @include buttonGraphic('./web-icon.png')
         }
-
     }
+
+
+
+
+}
