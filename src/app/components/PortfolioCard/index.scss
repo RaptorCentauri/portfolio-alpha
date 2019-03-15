@@ -15,29 +15,100 @@
   box-sizing: border-box;
 }
 
-@mixin CardTitleStyle{
+@mixin CardTitleStyle($side){
+  .navwrapper{
   justify-content: space-between;
   display: flex;
-}
 
-.project-title{
-  font-size: 1.25em;
+  .project-title{
+    font-size: 1.25em;
     flex-grow: 1;
     order: -1;
 
-  @include breakpoint(phone){
-    justify-self: start;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   font-weight: 500;
-   font-size: 1em;
+    @include breakpoint(phone){
+      justify-self: start;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 500;
+     font-size: 1em;
+    }
+  }
+
+  @if($side == 'front'){
+      .project-site{
+        display: none;
+      }
+      .project-source{
+        display: none;
+      }
+
+      .info-button{
+        order: 1;
+        @include buttonGraphic('./info-icon.png')
+      }
+  }
+  @if($side == 'back'){
+      .info-button{
+        order: 2;
+        @include buttonGraphic('./info-icon.png')
+      }
+
+      .project-source{
+        @include buttonGraphic('./github-512.png')
+      }
+
+      .project-site{
+        @include buttonGraphic('./web-icon.png')
+      }
+  }
+  }
+}
+
+@mixin CardBodyStyle($side){
+  @if($side == 'front'){
+    .portfolio-pic{
+      // background-color: orange;
+      // width: 100%;
+      // height: 100%;
+
+      border: 1px solid black;
+      justify-self: center;
+      align-self: center;
+      grid-area: portfolio-pic;
+      width: auto;
+      height: 185px;
+
+      @include breakpoint(phone){
+          height: 75px;
+      }
+    }
+
+    .project-description{
+      display: none;
+    }
+
+  }
+  @if($side == 'back'){
+    .portfolio-pic{
+      display: none;
+    }
+
+    .project-description{
+      grid-area: project-description;
+      justify-self: center;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+      font-size: 0.80em;
+      overflow-y: scroll;
+    }
   }
 }
 
 
-
 .cardFront{
+  $side: 'front';
   @include CardStyle;
-
+  @include CardTitleStyle($side)
+  @include CardBodyStyle($side)
 
   @include breakpoint(phone){
     @include phone-layout('front')
@@ -58,103 +129,34 @@
   @include breakpoint(desktop-large){
     @include desktop-large-layout('front');
   }
-
-
-
-  .portfolio-pic{
-    border: 1px solid black;
-    justify-self: center;
-    align-self: center;
-    grid-area: portfolio-pic;
-    width: auto;
-    height: 185px;
-
-    @include breakpoint(phone){
-        height: 75px;
-    }
-  }
-
-
-  .project-description{
-    display: none;
-  }
-
-  .navwrapper{
-    @include CardTitleStyle
-
-    .project-site{
-      display: none;
-    }
-    .project-source{
-      display: none;
-    }
-
-    .info-button{
-      order: 1;
-      @include buttonGraphic('./info-icon.png')
-    }
-  }
-
 }
 
 
-    .cardBack{
-      @include CardStyle;
-
-      .portfolio-pic{
-        display: none;
-      }
-
-      @include breakpoint(phone){
-        @include phone-layout('back');
-      }
-
-      @include breakpoint(tablet-portrait){
-        @include tablet-portrait-layout('back');
-      }
-
-      @include breakpoint(tablet-landscape){
-        @include tablet-landscape-layout('back');
-      }
-
-      @include breakpoint(desktop){
-        @include desktop-layout('back');
-      }
-
-      @include breakpoint(desktop-large){
-        @include desktop-large-layout('back');
-      }
+.cardBack{
+  $side: 'back';
+  @include CardStyle;
+  @include CardTitleStyle($side)
+  @include CardBodyStyle($side)
 
 
-      .project-description{
-        grid-area: project-description;
-        justify-self: center;
-        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        font-weight: 300;
-        font-size: 0.80em;
-        overflow-y: scroll;
-      }
+  @include breakpoint(phone){
+    @include phone-layout('back');
+  }
 
+  @include breakpoint(tablet-portrait){
+    @include tablet-portrait-layout('back');
+  }
 
-      .navwrapper{
-        @include CardTitleStyle;
+  @include breakpoint(tablet-landscape){
+    @include tablet-landscape-layout('back');
+  }
 
+  @include breakpoint(desktop){
+    @include desktop-layout('back');
+  }
 
-        .info-button{
-          order: 2;
-          @include buttonGraphic('./info-icon.png')
-        }
-
-        .project-source{
-          @include buttonGraphic('./github-512.png')
-        }
-
-        .project-site{
-          @include buttonGraphic('./web-icon.png')
-        }
-    }
-
-
-
+  @include breakpoint(desktop-large){
+    @include desktop-large-layout('back');
+  }
 
 }

@@ -43,6 +43,11 @@ require('./index.scss');
     }
 
 
+
+
+
+
+
     return(
       <div style={cardStyle} className={cardSide} >
         <div className="navwrapper">
@@ -52,6 +57,9 @@ require('./index.scss');
           <h1 className='project-title'>{name}</h1>
         </div>
         <img className='portfolio-pic' src={pic} />
+
+        {/* <div style={backgroundImage: `url(${pic})`} className='portfolio-pic' ></div> */}
+
         <h2 style={aboutStyle} className="project-description" ref={aboutRef}>{about}</h2>
       </div>
     )

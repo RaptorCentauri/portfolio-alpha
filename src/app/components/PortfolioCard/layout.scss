@@ -1,3 +1,28 @@
+@mixin SquareCard($side){
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns:10fr;
+  align-self: center;
+  justify-self: center;
+  min-height: 325px;
+  min-width: 325px;
+
+  @if $side == 'front'{
+    grid-template-areas:
+    "nav-wrap"
+    "portfolio-pic ";
+  }
+  @else if $side == 'back'{
+    grid-template-areas:
+    "nav-wrap"
+    "project-description";
+  }
+}
+
+
+
+
+
 @mixin phone-layout($side){
   grid-column-gap: 10px;
   width: 100vw;
@@ -107,27 +132,5 @@
 }
 
 @mixin desktop-large-layout($side){
-  display: grid;
-  align-self: center;
-  justify-self: center;
-  @if $side == 'front'{
-    grid-template-rows: 1fr 10fr;
-    grid-template-areas:
-    "nav-wrap"
-    "portfolio-pic ";
-    height: 325px;
-    width: 325px;
-    box-sizing: border-box;
-  }
-  @else if $side == 'back'{
-    grid-template-columns:10fr;
-    grid-template-rows: 1fr 10fr;
-    grid-template-areas:
-    "nav-wrap"
-    "project-description";
-    min-height: 325px;
-    min-width: 325px;
-
-    box-sizing: border-box;
-  }
+  @include SquareCard($side)
 }
