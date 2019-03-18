@@ -1,6 +1,20 @@
 @import '../../styles/mediaQueries.scss';
 @import './layout.scss';
 
+
+@mixin fthis{
+  // background-color: green;
+  grid-area: project-description;
+  justify-self: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 0.80em;
+  overflow-y: scroll;
+  height: inherit;
+}
+
+
+
 @mixin buttonGraphic($path){
   background-image: url($path);
   background-repeat: no-repeat;
@@ -66,20 +80,10 @@
 @mixin CardBodyStyle($side){
   @if($side == 'front'){
     .portfolio-pic{
-      // background-color: orange;
-      // width: 100%;
-      // height: 100%;
-
-      border: 1px solid black;
-      justify-self: center;
-      align-self: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 100%;
       grid-area: portfolio-pic;
-      width: auto;
-      height: 185px;
-
-      @include breakpoint(phone){
-          height: 75px;
-      }
     }
 
     .project-description{
@@ -93,12 +97,27 @@
     }
 
     .project-description{
-      grid-area: project-description;
-      justify-self: center;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-      font-weight: 300;
-      font-size: 0.80em;
-      overflow-y: scroll;
+
+
+
+      @include breakpoint(phone){
+      }
+
+      @include breakpoint(tablet-portrait){
+            @include fthis
+      }
+
+      @include breakpoint(tablet-landscape){
+        @include fthis
+      }
+
+      @include breakpoint(desktop){
+        @include fthis
+      }
+      //
+      @include breakpoint(desktop-large){
+        @include fthis
+      }
     }
   }
 }
@@ -133,6 +152,7 @@
 
 
 .cardBack{
+  // height: 100%;
   $side: 'back';
   @include CardStyle;
   @include CardTitleStyle($side)

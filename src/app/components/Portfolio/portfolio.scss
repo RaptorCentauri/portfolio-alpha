@@ -1,34 +1,75 @@
 @import '../../styles/colors.scss';
 @import '../../styles/dimensions.scss';
+@import '../../styles/mediaQueries.scss';
 
 
-@mixin layout-square{
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
 
-  justify-content: center;
-  grid-gap: 25px;
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: space-evenly;
-
-}
+// @mixin layout-square{
+//   display: grid;
+//   grid-template-columns: repeat(5, auto);
+//
+//   justify-content: center;
+//   grid-gap: 25px;
+//   height: calc(100vw - $titlebar-height);
+//
+// }
 
 
 .portfolio-wrapper{
-  @include layout-square;
+  // @include layout-square;
   box-sizing: border-box;
 
-  // padding: 50px 0;
-
-  // border: 8px solid black;
-
-          background-color: olive;
 
 
+  @include breakpoint(phone){
+  }
+
+  @include breakpoint(tablet-portrait){
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    justify-content: center;
+    grid-gap: 25px;
+    // height: calc(100vw - $titlebar-height);
+    background-color: rgb(255, 66, 96);
+  }
+
+  @include breakpoint(tablet-landscape){
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+    justify-content: center;
+    grid-gap: 25px;
+    // height: calc(100vw - $titlebar-height);
+    background-color: rgb(102, 241, 84);
+  }
+
+  @include breakpoint(desktop){
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+
+    justify-content: center;
+    grid-gap: 25px;
+    // height: calc(100vw - $titlebar-height);
+    background-color: orange;
+  }
+
+  @include breakpoint(desktop-large){
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+
+    justify-content: center;
+    grid-gap: 25px;
+    // height: calc(100vw - $titlebar-height);
+    background-color: rgb(149, 211, 244);
+
+
+  }
+}
 
 
 
-    }
+
+
+
+    // }

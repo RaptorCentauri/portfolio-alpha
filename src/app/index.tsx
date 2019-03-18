@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import './index.scss'
 import {projects} from '../assets/projects'
 
-import {Navbar, Portfolio, StayTuned} from './components'
+import {Navbar, Portfolio, StayTuned, AboutMe} from './components'
 
 class App extends React.Component{
     state={
@@ -25,49 +25,47 @@ class App extends React.Component{
     // }
 
 
-    // renderMain(str='About Me'){
-    //     console.log("render main hit");
-    //
-    //     let compToRender;
-    //
-    //     switch (str) {
-    //         case 'About Me':
-    //             compToRender = <AboutMe />
-    //             break;
-    //
-    //         case 'Portfolio':
-    //             compToRender = <Portfolio handlePrev={this.handlePrevClick} handleNext={this.handleNextClick} index={this.state.currentIndex} tempPics={this.state.tempArray}/>
-    //             break;
-    //
-    //         case 'Contact':
-    //             compToRender = <Contact />
-    //             break;
-    //
-    //         case 'Blog':
-    //             compToRender = <Blog apiTest={this.testConnections}/>
-    //             break;
-    //
-    //         case 'Resume':
-    //             compToRender = <Resume />
-    //             break;
-    //
-    //         default:
-    //             break;
-    //     }
-    //
-    //     return compToRender;
-    // }
+    renderMain(str='About Me'){
+        console.log("render main hit");
+
+        let compToRender;
+
+        switch (str) {
+            case 'About Me':
+                compToRender = <AboutMe />
+                break;
+
+            case 'Portfolio':
+                compToRender = <Portfolio arr={this.state.projects}/>
+                break;
+
+            case 'Contact':
+                compToRender = <Contact />
+                break;
+
+            case 'Blog':
+                compToRender = <Blog apiTest={this.testConnections}/>
+                break;
+
+            case 'Resume':
+                compToRender = <Resume />
+                break;
+
+            default:
+                break;
+        }
+
+        return compToRender;
+    }
 
     render(){
         return(
-            <div>
+            <React.Fragment>
                 {/* <TitlebarMobile title={this.state.activeWindow}/> */}
                 {/* {this.renderMain(this.state.activeWindow)} */}
                 <Navbar setActiveWindow={this.setActiveWindow}/>
-                <Portfolio arr={this.state.projects}/>
-              {/* <StayTuned /> */}
-
-            </div>
+                {this.renderMain(this.state.activeWindow)}
+            </React.Fragment>
         );
     }
 }

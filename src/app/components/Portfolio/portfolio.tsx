@@ -3,8 +3,6 @@ require('./portfolio.scss');
 import PortfolioCard from '../PortfolioCard'
 
 
-
-
 class Portfolio extends React.Component{
   constructor(props: any){
     super(props)
