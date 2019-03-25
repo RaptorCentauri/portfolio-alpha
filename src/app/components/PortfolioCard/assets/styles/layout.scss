@@ -1,0 +1,63 @@
+@mixin SquareCard($side){
+  display: grid;
+  grid-template-rows: 2fr 8fr;
+  grid-template-columns:10fr;
+  align-self: center;
+  justify-self: center;
+  height: 325px;
+  width: 325px;
+
+  @if $side == 'front'{
+    grid-template-areas:
+    "nav-wrap"
+    "portfolio-pic ";
+  }
+  @else if $side == 'back'{
+    grid-template-areas:
+    "nav-wrap"
+    "project-description";
+  }
+}
+
+
+@mixin SingleWide($side){
+  display: grid;
+  width: 100vw;
+
+  @if $side == 'front'{
+    height: 10vh;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    "portfolio-pic nav-wrap";
+  }
+
+  @else if $side == 'back'{
+    grid-template-row: 1fr;
+    grid-template-areas:
+    "nav-wrap"
+    "project-description";
+  }
+}
+
+
+@mixin phone-layout($side){
+  @include SingleWide($side)
+}
+
+
+@mixin tablet-portrait-layout($side){
+  @include SingleWide($side)
+}
+
+
+@mixin tablet-landscape-layout($side){
+  @include SquareCard($side)
+}
+
+@mixin desktop-layout($side){
+  @include SquareCard($side)
+}
+
+@mixin desktop-large-layout($side){
+  @include SquareCard($side)
+}

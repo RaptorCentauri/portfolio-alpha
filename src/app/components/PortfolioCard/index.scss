@@ -1,77 +1,123 @@
 @import '../../styles/mediaQueries.scss';
-@import './layout.scss';
+@import 'assets/styles/layout.scss';
+@import 'assets/styles/typography.scss';
+@import 'assets/styles/colors.scss';
+@import 'assets/styles/mixins.scss';
 
 
-@mixin fthis{
-  // background-color: green;
+@mixin projectDescriptionMixin{
+  // background-color: blue;
   grid-area: project-description;
   justify-self: center;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: $card-body-font;
   font-weight: 300;
   font-size: 0.80em;
-  overflow-y: scroll;
-  height: inherit;
+  // height: inherit;
+
+
+  @include breakpoint(tablet-landscape){
+    overflow-y: scroll;
+  }
+
+  @include breakpoint(desktop){
+    overflow-y: scroll;
+  }
+
+  @include breakpoint(desktop-large){
+    overflow-y: scroll;
+  }
 }
 
 
 
-@mixin buttonGraphic($path){
-  background-image: url($path);
-  background-repeat: no-repeat;
-  background-size: contain;
-  color:rgba(0,0,0,0);
-  text-decoration: none;
-}
-
-@mixin CardStyle{
-  background-color: #F5F5F5;
-  box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.70);
-  box-sizing: border-box;
-}
 
 @mixin CardTitleStyle($side){
+
   .navwrapper{
-  justify-content: space-between;
-  display: flex;
+    grid-area: nav-wrap;
+
+    justify-content: space-between;
+    display: flex;
 
   .project-title{
-    font-size: 1.25em;
+    // background-color: red;
+    font-size: 1.5rem;
+    color: $card-title-color;
     flex-grow: 1;
     order: -1;
 
+
+
+
     @include breakpoint(phone){
       justify-self: start;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-     font-weight: 500;
-     font-size: 1em;
+      font-family: $card-title-font;
+      font-weight: 500;
+      font-size: 1em;
+      align-self: center;
     }
+
+    @include breakpoint(tablet-portrait){
+      justify-self: start;
+      font-family: $card-title-font;
+      font-weight: 500;
+      // font-size: 2rem;
+      align-self: center;
+    }
+
+
   }
 
   @if($side == 'front'){
       .project-site{
         display: none;
       }
+
       .project-source{
         display: none;
       }
 
       .info-button{
+        fill: $card-title-color;
+        height: 1.25rem;
+
+
         order: 1;
-        @include buttonGraphic('./info-icon.png')
+
+        @include breakpoint(phone){
+          align-self: center;
+        }
+
+        @include breakpoint(tablet-portrait){
+          align-self: center;
+        }
       }
   }
   @if($side == 'back'){
       .info-button{
+        align-self: center;
+        fill: $card-title-color;
+        height: 1.5rem;
+        padding-left: 0.5rem;
         order: 2;
-        @include buttonGraphic('./info-icon.png')
       }
 
       .project-source{
-        @include buttonGraphic('./github-512.png')
+        align-self: center;
+        padding-left: 0.5rem;
+        svg{
+          fill: $card-title-color;
+          height: 1.5rem;
+        }
       }
 
       .project-site{
-        @include buttonGraphic('./web-icon.png')
+        align-self: center;
+        svg{
+          fill: $card-title-color;
+          height: 1.5rem;
+        }
+
       }
   }
   }
@@ -80,10 +126,23 @@
 @mixin CardBodyStyle($side){
   @if($side == 'front'){
     .portfolio-pic{
+      // background-color: yellow;
       background-size: contain;
+      background-position: center;
       background-repeat: no-repeat;
-      height: 100%;
       grid-area: portfolio-pic;
+
+      @include breakpoint(phone){
+        // justify-self: center;
+        // border: 4px solid green;
+        // justify-self: start;
+        // font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        // font-weight: 500;
+        // font-size: 1em;
+        // // color: red;
+        // align-self: center;
+        // justify-self: center;
+      }
     }
 
     .project-description{
@@ -95,32 +154,15 @@
     .portfolio-pic{
       display: none;
     }
-
     .project-description{
-
-
-
-      @include breakpoint(phone){
-      }
-
-      @include breakpoint(tablet-portrait){
-            @include fthis
-      }
-
-      @include breakpoint(tablet-landscape){
-        @include fthis
-      }
-
-      @include breakpoint(desktop){
-        @include fthis
-      }
-      //
-      @include breakpoint(desktop-large){
-        @include fthis
-      }
+      @include projectDescriptionMixin;
     }
   }
 }
+
+
+
+
 
 
 .cardFront{
@@ -152,7 +194,6 @@
 
 
 .cardBack{
-  // height: 100%;
   $side: 'back';
   @include CardStyle;
   @include CardTitleStyle($side)

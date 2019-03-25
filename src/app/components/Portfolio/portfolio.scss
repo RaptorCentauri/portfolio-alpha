@@ -3,35 +3,23 @@
 @import '../../styles/mediaQueries.scss';
 
 
-
-// @mixin layout-square{
-//   display: grid;
-//   grid-template-columns: repeat(5, auto);
-//
-//   justify-content: center;
-//   grid-gap: 25px;
-//   height: calc(100vw - $titlebar-height);
-//
-// }
-
-
 .portfolio-wrapper{
-  // @include layout-square;
   box-sizing: border-box;
 
-
-
   @include breakpoint(phone){
+    // border: 8px solid red;
+    // background-color: green;
+    // display: flex;
+    // flex-direction: column;
   }
 
   @include breakpoint(tablet-portrait){
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-
-    justify-content: center;
-    grid-gap: 25px;
-    // height: calc(100vw - $titlebar-height);
-    background-color: rgb(255, 66, 96);
+    // display: grid;
+    // grid-template-columns: repeat(2, auto);
+    //
+    // justify-content: center;
+    // grid-gap: 25px;
+    // // height: calc(100vw - $titlebar-height);
   }
 
   @include breakpoint(tablet-landscape){
@@ -40,18 +28,13 @@
 
     justify-content: center;
     grid-gap: 25px;
-    // height: calc(100vw - $titlebar-height);
-    background-color: rgb(102, 241, 84);
   }
 
   @include breakpoint(desktop){
     display: grid;
     grid-template-columns: repeat(4, auto);
-
     justify-content: center;
     grid-gap: 25px;
-    // height: calc(100vw - $titlebar-height);
-    background-color: orange;
   }
 
   @include breakpoint(desktop-large){
@@ -60,16 +43,5 @@
 
     justify-content: center;
     grid-gap: 25px;
-    // height: calc(100vw - $titlebar-height);
-    background-color: rgb(149, 211, 244);
-
-
   }
 }
-
-
-
-
-
-
-    // }
