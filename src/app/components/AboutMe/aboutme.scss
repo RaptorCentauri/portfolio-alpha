@@ -1,27 +1,86 @@
+@import '../../styles/colors.scss';
+@import '../../styles/dimensions.scss';
+@import '../../styles/mediaQueries.scss';
+
 .aboutme-styles{
-    display: flex;
-    @media only screen and (max-width: 640px) {
-            padding: 35px 0;
-            flex-direction: column;
-            
+  padding-top: 100px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+  "profile-pic"
+  "profile-name"
+  "profile-about";
+
+  .mypic{
+    grid-area: profile-pic;
+    border: 3.5px solid rgb(168, 168, 168);
+    border-radius: 50%;
+    object-fit: none;
+    object-position: 60% 20%;
+    justify-self: center;
+
+    box-shadow: 10px 10px 15px 2.5px rgba(0,0,0,0.55);
+
+    @include breakpoint(phone){
+      width: 20rem;
+      height: 20rem;
     }
 
-    img {
-        width: 50vw;
-        height: auto;
+    @include breakpoint(tablet-portrait){
+      width: 32rem;
+      height: 32rem;
+    }
 
-        @media only screen and (max-width: 640px) {
-            height: auto;
-            min-width: 100vw;
-        }
+    @include breakpoint(tablet-landscape){
+      width: 32rem;
+      height: 32rem;
+    }
 
+    @include breakpoint(desktop){
+      width: 32rem;
+      height: 32rem;
+    }
+
+    @include breakpoint(desktop-large){
+      width: 32rem;
+      height: 32rem;
     }
 
 }
 
-#aboutme-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .myName{
+    grid-area: profile-name;
+    justify-self: center;
+
+    @include breakpoint(phone){
+      font-size: 3.5rem;
+    }
+
+    @include breakpoint(tablet-portrait){
+      font-size: 4.5rem;
+    }
+
+    @include breakpoint(tablet-landscape){
+      font-size: 6.5rem;
+    }
+
+    @include breakpoint(desktop){
+      font-size: 8.5rem;
+    }
+
+    @include breakpoint(desktop-large){
+      font-size: 8.5rem;
+    }
+  }
+
+  .profileAbout{
+    grid-area: profile-about;
+    justify-self: center;
+    padding: 1.25rem;
+    font-size: 1.25rem;
+  }
+
 }

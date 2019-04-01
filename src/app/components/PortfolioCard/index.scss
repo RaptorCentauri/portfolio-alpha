@@ -4,33 +4,6 @@
 @import 'assets/styles/colors.scss';
 @import 'assets/styles/mixins.scss';
 
-
-@mixin projectDescriptionMixin{
-  // background-color: blue;
-  grid-area: project-description;
-  justify-self: center;
-  font-family: $card-body-font;
-  font-weight: 300;
-  font-size: 0.80em;
-  // height: inherit;
-
-
-  @include breakpoint(tablet-landscape){
-    overflow-y: scroll;
-  }
-
-  @include breakpoint(desktop){
-    overflow-y: scroll;
-  }
-
-  @include breakpoint(desktop-large){
-    overflow-y: scroll;
-  }
-}
-
-
-
-
 @mixin CardTitleStyle($side){
 
   .navwrapper{
@@ -39,19 +12,25 @@
     justify-content: space-between;
     display: flex;
 
+
+    border-bottom: 0.25px solid $card-border-color;
+
+    @include breakpoint(phone){
+      border-bottom: none;
+    }
+
+
   .project-title{
-    // background-color: red;
     font-size: 1.5rem;
+    font-family: $card-title-font;
     color: $card-title-color;
     flex-grow: 1;
     order: -1;
-
-
+    // justify-self: start;
 
 
     @include breakpoint(phone){
       justify-self: start;
-      font-family: $card-title-font;
       font-weight: 500;
       font-size: 1em;
       align-self: center;
@@ -59,12 +38,9 @@
 
     @include breakpoint(tablet-portrait){
       justify-self: start;
-      font-family: $card-title-font;
       font-weight: 500;
-      // font-size: 2rem;
       align-self: center;
     }
-
 
   }
 
@@ -78,26 +54,16 @@
       }
 
       .info-button{
-        fill: $card-title-color;
-        height: 1.25rem;
-
-
+        @include svgIcon;
+        align-self: center;
+        padding-left: 0.5rem;
         order: 1;
-
-        @include breakpoint(phone){
-          align-self: center;
-        }
-
-        @include breakpoint(tablet-portrait){
-          align-self: center;
-        }
       }
   }
   @if($side == 'back'){
       .info-button{
+        @include svgIcon;
         align-self: center;
-        fill: $card-title-color;
-        height: 1.5rem;
         padding-left: 0.5rem;
         order: 2;
       }
@@ -106,16 +72,15 @@
         align-self: center;
         padding-left: 0.5rem;
         svg{
-          fill: $card-title-color;
-          height: 1.5rem;
+          @include svgIcon;
         }
       }
 
       .project-site{
+        padding-left: 0.5rem;
         align-self: center;
         svg{
-          fill: $card-title-color;
-          height: 1.5rem;
+          @include svgIcon;
         }
 
       }
@@ -126,43 +91,44 @@
 @mixin CardBodyStyle($side){
   @if($side == 'front'){
     .portfolio-pic{
-      // background-color: yellow;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       grid-area: portfolio-pic;
-
-      @include breakpoint(phone){
-        // justify-self: center;
-        // border: 4px solid green;
-        // justify-self: start;
-        // font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        // font-weight: 500;
-        // font-size: 1em;
-        // // color: red;
-        // align-self: center;
-        // justify-self: center;
-      }
     }
 
     .project-description{
       display: none;
     }
-
   }
+
   @if($side == 'back'){
     .portfolio-pic{
       display: none;
     }
     .project-description{
-      @include projectDescriptionMixin;
+      color: $card-description-color;
+      grid-area: project-description;
+      justify-self: center;
+      font-family: $card-body-font;
+      font-weight: 300;
+      font-size: 0.80rem;
+      padding-top: 0.35rem;
+
+      @include breakpoint(tablet-landscape){
+        overflow-y: scroll;
+      }
+
+      @include breakpoint(desktop){
+        overflow-y: scroll;
+      }
+
+      @include breakpoint(desktop-large){
+        overflow-y: scroll;
+      }
     }
   }
 }
-
-
-
-
 
 
 .cardFront{
@@ -219,5 +185,4 @@
   @include breakpoint(desktop-large){
     @include desktop-large-layout('back');
   }
-
 }

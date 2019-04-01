@@ -4,6 +4,7 @@
 
 
 .portfolio-wrapper{
+  height: 100vh;
   box-sizing: border-box;
 
   @include breakpoint(phone){

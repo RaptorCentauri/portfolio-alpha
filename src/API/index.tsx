@@ -1,5 +1,5 @@
-import method from './method';
+import getProjects from './getProjects';
 
 export{
-  method
+  getProjects
 }

@@ -5,6 +5,8 @@ import {projects} from '../assets/projects'
 
 import {Navbar, Portfolio, StayTuned, AboutMe} from './components'
 
+import * as API from '../API'
+
 class App extends React.Component{
     state={
         activeWindow: 'About Me',
@@ -12,9 +14,12 @@ class App extends React.Component{
         projects
     }
 
-    // componentDidMount(){
-    //   console.log('it mounted');
-    // }
+    componentDidMount = async () => {
+      console.log('I can call an api');
+      let projects =  await API.getProjects();
+      console.log('projects', projects[0].files[0])
+      this.setState({projects: projects})
+    }
 
     setActiveWindow = (str) => {
         this.setState({activeWindow: str})
@@ -63,8 +68,11 @@ class App extends React.Component{
             <React.Fragment>
                 {/* <TitlebarMobile title={this.state.activeWindow}/> */}
                 {/* {this.renderMain(this.state.activeWindow)} */}
-                <Navbar setActiveWindow={this.setActiveWindow}/>
-                {this.renderMain(this.state.activeWindow)}
+                {/* <Navbar setActiveWindow={this.setActiveWindow}/> */}
+                {/* {this.renderMain(this.state.activeWindow)} */}
+                <AboutMe />
+                {/* <Portfolio arr={this.state.projects}/> */}
+
             </React.Fragment>
         );
     }

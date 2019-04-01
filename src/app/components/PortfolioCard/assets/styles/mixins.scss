@@ -1,19 +1,19 @@
 @mixin CardStyle{
   background-color: $card-body-color;
-  border: 1.25px solid $card-border-color;
+  border: 1.5px solid $card-border-color;
 
   box-shadow: 10px 10px 15px 2.5px $card-shadow-color;
   box-sizing: border-box;
-  padding: 0 0.35rem;
+  padding: 0 0.35rem 0 0.35rem;
+
+  @include breakpoint(phone){
+    border: 1px solid $card-border-color;
+    padding: 0 0.35rem 0 0;
+  }
 }
 
 
-@mixin buttonGraphic($path){
-  // background-color: red;
-  background: url($path);
-  // background-blend-mode: overlay;
-  background-repeat: no-repeat;
-  background-size: contain;
-  color:rgba(0,0,0,0);
-  text-decoration: none;
+@mixin svgIcon{
+  fill: $card-title-color;
+  height: 1.5rem;
 }
