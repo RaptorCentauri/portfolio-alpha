@@ -1,31 +1,22 @@
 import * as React from 'react';
-require('./portfolio.scss');
+import './portfolio.scss'
 import PortfolioCard from '../PortfolioCard'
 
+import * as API from '../../../API'
 
-class Portfolio extends React.Component{
-  constructor(props: any){
-    super(props)
-    this.state = {
-      arr: this.props.arr
-    }
-  }
+const Portfolio = () => {
 
-componentDidMount(){
-// let {arr} = this.state;
-// arr.forEach((a) => console.log(a.files[0]))
-  // console.log(this.state.arr)
-}
+  const [projects, setProjects] = React.useState([]);
 
+  React.useEffect(()=>{
+    API.getProjects().then((data) => {setProjects(data)})
+  },[])
 
-  render(){
     return(
       <div className='portfolio-wrapper'>
-              {this.state.arr.map((e => <PortfolioCard key={e.id} site={e.site} name={e.name} code={e.code} about={e.about}/>)}
+          {projects.map((e => <PortfolioCard key={e.id} site={e.site}  name={e.name} pic={e.files[0]} code={e.code} about={e.about}/>)}
       </div>
     )
-  }
-
 }
 
 export default Portfolio;
