@@ -3,7 +3,9 @@
 @import '../../styles/mediaQueries.scss';
 
 .aboutme-styles{
-  height: 100vh;
+  // height: 100vh;
+  min-height: 100vh;
+  background-color: grey;
   padding-top: 100px;
   box-sizing: border-box;
 
@@ -15,15 +17,20 @@
   "profile-name"
   "profile-about";
 
+  @include breakpoint(phone){
+    // height: auto;
+  }
+
   .mypic{
+
     grid-area: profile-pic;
-    // border: 3.5px solid rgb(168, 168, 168);
+    border: 3.5px solid #FFF;
     border-radius: 50%;
     object-fit: none;
     object-position: 60% 20%;
     justify-self: center;
 
-    box-shadow: 10px 10px 15px 2.5px rgba(0,0,0,0.55);
+    // box-shadow: 10px 10px 15px 2.5px rgba(0,0,0,0.55);
 
     @include breakpoint(phone){
       width: 20rem;
@@ -31,6 +38,7 @@
     }
 
     @include breakpoint(tablet-portrait){
+
       width: 32rem;
       height: 32rem;
     }
@@ -57,7 +65,7 @@
     justify-self: center;
 
     @include breakpoint(phone){
-      font-size: 3.5rem;
+      font-size: 2.5rem;
     }
 
     @include breakpoint(tablet-portrait){
@@ -78,6 +86,8 @@
   }
 
   .profileAbout{
+    background-color: white;
+
     grid-area: profile-about;
     justify-self: center;
     padding: 1.25rem;

@@ -22,25 +22,24 @@
 
   .project-title{
     font-size: 1.5rem;
-    font-family: $card-title-font;
-    color: $card-title-color;
-    flex-grow: 1;
-    order: -1;
-    // justify-self: start;
+      font-family: $card-title-font;
+      color: $card-title-color;
+      flex-grow: 1;
+      order: -1;
 
 
-    @include breakpoint(phone){
-      justify-self: start;
-      font-weight: 500;
-      font-size: 1em;
-      align-self: center;
-    }
+      @include breakpoint(phone){
+        justify-self: start;
+        font-weight: 500;
+        font-size: 1.25em;
+        align-self: center;
+      }
 
-    @include breakpoint(tablet-portrait){
-      justify-self: start;
-      font-weight: 500;
-      align-self: center;
-    }
+      @include breakpoint(tablet-portrait){
+        justify-self: start;
+        font-weight: 500;
+        align-self: center;
+      }
 
   }
 
@@ -54,19 +53,22 @@
       }
 
       .info-button{
-        @include svgIcon;
         align-self: center;
-        padding-left: 0.5rem;
         order: 1;
+        svg{
+          @include svgIcon;
+        }
       }
   }
+
   @if($side == 'back'){
-      .info-button{
+    .info-button{
+      align-self: center;
+      order: 2;
+      svg{
         @include svgIcon;
-        align-self: center;
-        padding-left: 0.5rem;
-        order: 2;
       }
+    }
 
       .project-source{
         align-self: center;
@@ -82,7 +84,6 @@
         svg{
           @include svgIcon;
         }
-
       }
   }
   }

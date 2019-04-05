@@ -20,18 +20,41 @@
 }
 
 
+@mixin SquarePhone($side){
+  display: grid;
+  grid-template-rows: 2fr 8fr;
+  grid-template-columns:10fr;
+  align-self: center;
+  justify-self: center;
+  height: 20vh;
+  width: 100vw;
+
+  @if $side == 'front'{
+    grid-template-areas:
+    "nav-wrap"
+    "portfolio-pic";
+  }
+  @else if $side == 'back'{
+    grid-template-areas:
+    "nav-wrap"
+    "project-description";
+  }
+}
+
+
 @mixin SingleWide($side){
   display: grid;
   width: 100vw;
 
   @if $side == 'front'{
-    height: 10vh;
+    height: 20vh;
     grid-template-columns: 1fr 2fr;
     grid-template-areas:
     "portfolio-pic nav-wrap";
   }
 
   @else if $side == 'back'{
+    min-height: 20vh;
     grid-template-row: 1fr;
     grid-template-areas:
     "nav-wrap"
@@ -42,6 +65,11 @@
 
 @mixin phone-layout($side){
   @include SingleWide($side)
+  // padding: 0 1rem;
+  // @include SquarePhone($side)
+  // width: 100vw;
+  // height: 25vh
+
 }
 
 

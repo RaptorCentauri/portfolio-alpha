@@ -4,15 +4,15 @@
 
 
 .portfolio-wrapper{
-  // height: 100vh;
   box-sizing: border-box;
-  background-color: yellow;
-  padding-top: 100px;
+  // padding: 1.5rem;
 
   @include breakpoint(phone){
+    padding: none;
   }
 
   @include breakpoint(tablet-portrait){
+    padding: none;
   }
 
   @include breakpoint(tablet-landscape){
@@ -20,14 +20,18 @@
     grid-template-columns: repeat(3, auto);
 
     justify-content: center;
-    grid-gap: 25px;
+    // grid-gap: 25px;
+    grid-gap: 3rem;
+
   }
 
   @include breakpoint(desktop){
     display: grid;
     grid-template-columns: repeat(4, auto);
     justify-content: center;
-    grid-gap: 25px;
+    // grid-gap: 25px;
+    grid-gap: 3rem;
+
   }
 
   @include breakpoint(desktop-large){
@@ -35,6 +39,7 @@
     grid-template-columns: repeat(5, auto);
 
     justify-content: center;
-    grid-gap: 25px;
+    grid-gap: 3rem;
+    // grid-gap: 25px;
   }
 }
