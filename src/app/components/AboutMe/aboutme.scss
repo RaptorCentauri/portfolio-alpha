@@ -1,68 +1,51 @@
-@import '../../styles/colors.scss';
-@import '../../styles/dimensions.scss';
 @import '../../styles/mediaQueries.scss';
 
+$darkColor: rgb(60, 60, 60);
+$lightColor: rgb(249, 249, 249);
 .aboutme-styles{
-  // height: 100vh;
   min-height: 100vh;
-  background-color: grey;
-  padding-top: 100px;
+  background-color: $darkColor;
   box-sizing: border-box;
 
   display: grid;
-  grid-gap: 1.5rem;
   grid-template-rows: repeat(3, auto);
+  grid-template-columns: 1.5rem auto 1.5rem;
   grid-template-areas:
-  "profile-pic"
-  "profile-name"
-  "profile-about";
+  ". profile-pic ."
+  ". profile-name ."
+  ". profile-about .";
 
-  @include breakpoint(phone){
-    // height: auto;
+  @include breakpoint(desktop-large){
+    grid-template-columns: 10rem auto 10rem;
   }
 
   .mypic{
-
     grid-area: profile-pic;
-    border: 3.5px solid #FFF;
+    border: 1.5px solid rgb(249, 249, 249);
     border-radius: 50%;
     object-fit: none;
     object-position: 60% 20%;
     justify-self: center;
-
-    // box-shadow: 10px 10px 15px 2.5px rgba(0,0,0,0.55);
+    align-self: center;
 
     @include breakpoint(phone){
-      width: 20rem;
-      height: 20rem;
+      $picSize: 17.5rem;
+      width: $picSize;
+      height: $picSize;
     }
 
     @include breakpoint(tablet-portrait){
-
-      width: 32rem;
-      height: 32rem;
+      $picSize: 32rem;
+      width: $picSize;
+      height: $picSize;
     }
-
-    @include breakpoint(tablet-landscape){
-      width: 32rem;
-      height: 32rem;
-    }
-
-    @include breakpoint(desktop){
-      width: 32rem;
-      height: 32rem;
-    }
-
-    @include breakpoint(desktop-large){
-      width: 32rem;
-      height: 32rem;
-    }
-
 }
 
   .myName{
+    color: $lightColor;
     grid-area: profile-name;
     justify-self: center;
+    align-self: center;
 
     @include breakpoint(phone){
       font-size: 2.5rem;
@@ -81,17 +64,27 @@
     }
 
     @include breakpoint(desktop-large){
-      font-size: 8.5rem;
+      font-size: 12rem;
     }
   }
 
   .profileAbout{
-    background-color: white;
+    font-size: 1rem;
+    color: $lightColor;
+    text-align: justify;
 
     grid-area: profile-about;
     justify-self: center;
-    padding: 1.25rem;
-    font-size: 1.25rem;
+    // align-self: center;
+    // padding: 1.25rem 1.25rem 0 1.25rem;
+    // padding: 0 1rem;
+    // font-size: 1.25rem;
+
+    // @include breakpoint(desktop-large){
+      // font-size: 2.5rem;
+      // font-size: 2vmin;
+
+    // }
   }
 
 }

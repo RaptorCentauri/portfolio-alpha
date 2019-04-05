@@ -2,7 +2,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import './index.scss'
 
-import {Navbar, Portfolio, AboutMe, Contact} from './components'
+import {Portfolio, AboutMe, Contact} from './components'
 
 const App = () => {
   return(
