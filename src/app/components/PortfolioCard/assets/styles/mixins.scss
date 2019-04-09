@@ -1,21 +1,9 @@
 @mixin CardStyle{
-  background-color: $card-body-color;
-  border: 1.5px solid $card-border-color;
-
-  box-shadow: 10px 10px 15px 2.5px $card-shadow-color;
+  box-shadow: 10px 10px 15px 2.5px rgb(112, 111, 109);
   box-sizing: border-box;
-  padding: 0 0.35rem 0 0.35rem;
-
-  @include breakpoint(phone){
-    border: 1px solid $card-border-color;
-    padding: 0 0.35rem 0 0;
-  }
 }
 
 
 @mixin svgIcon{
-  fill: $card-title-color;
-  // fill: Red;
-
   height: 1.5rem;
 }

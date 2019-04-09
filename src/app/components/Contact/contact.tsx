@@ -8,6 +8,8 @@ import resume from './Resume.pdf'
 import resumeSVG from './resumePure.svg'
 import emailSVG from './emailPure.svg'
 import gitSVG from './github.svg'
+import linkedinSVG from './linkedin.svg'
+
 
 
 const Contact = (props) =>
@@ -22,6 +24,10 @@ const Contact = (props) =>
 
     <a href='https://github.com/RaptorCentauri' target="_blank">
       <SVG className={"git-icon"} src={gitSVG}></SVG>
+    </a>
+
+    <a href='https://www.linkedin.com/in/dave-leo-shilander/' target="_blank">
+      <SVG className={"git-icon"} src={linkedinSVG}></SVG>
     </a>
 
 

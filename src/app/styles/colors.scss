@@ -1,6 +1,8 @@
-$nav-bar-bg-color: #eeeeee;
-$nav-bar-border-color: #cccccc;
-$nav-bar-link-color: rgb(160, 160, 160);
-$nav-bar-link-hover: rgb(104, 104, 104);
+$darkColor: rgb(60, 60, 60);
+$lightColor: rgb(249, 249, 249);
 
-$topbar-color: #eeeeeef2;
+
+*{
+   color: $lightColor;
+   fill: $lightColor;
+}

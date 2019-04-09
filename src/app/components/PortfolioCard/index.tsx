@@ -25,8 +25,8 @@ import webSVG from './assets/images/web-icon.svg';
           });
 
           setCardStyle({
-            height: Math.sqrt(scrollHeight * clientWidth) + ((10/100) * Math.sqrt(scrollHeight * clientWidth)),
-            width: Math.sqrt(scrollHeight * clientWidth) + ((10/100) * Math.sqrt(scrollHeight * clientWidth))
+            height: Math.sqrt(scrollHeight * clientWidth) + ((20/100) * Math.sqrt(scrollHeight * clientWidth)),
+            width: Math.sqrt(scrollHeight * clientWidth) + ((20/100) * Math.sqrt(scrollHeight * clientWidth))
           })
       }
     })
@@ -47,18 +47,21 @@ import webSVG from './assets/images/web-icon.svg';
       <div style={cardStyle} className={cardSide} >
         <div className="navwrapper">
 
-          <span className={"info-button"} onClick={flipCard}>
-            <SVG onClick={flipCard}  src={infoSVG}/>
-          </span>
+
+        <a className="card-button" href={site} target="_blank">
+          <SVG className={'webIcon'} src={webSVG}/>
+        </a>
+
+        <a className="card-button" href={code} target="_blank">
+          <SVG className={'gitIcon'} src={gitSVG}/>
+        </a>
+
+        <span className={"card-button"} onClick={flipCard}>
+          <SVG onClick={flipCard}  src={infoSVG}/>
+        </span>
 
 
-          <a className="project-site" href={site} target="_blank">
-            <SVG className={'webIcon'} src={webSVG}/>
-          </a>
 
-          <a className="project-source" href={code} target="_blank">
-            <SVG className={'gitIcon'} src={gitSVG}/>
-          </a>
 
           <h1 className='project-title'>{name}</h1>
         </div>

@@ -1,95 +1,52 @@
 @import '../../styles/mediaQueries.scss';
+@import '../../styles/colors.scss';
+
 @import 'assets/styles/layout.scss';
-@import 'assets/styles/typography.scss';
-@import 'assets/styles/colors.scss';
+@import '../../styles/typography.scss';
 @import 'assets/styles/mixins.scss';
+
 
 @mixin CardTitleStyle($side){
 
   .navwrapper{
     grid-area: nav-wrap;
-
-    justify-content: space-between;
     display: flex;
 
-
-    border-bottom: 0.25px solid $card-border-color;
-
-    @include breakpoint(phone){
-      border-bottom: none;
-    }
-
+    border-bottom: 1.5px solid $lightColor;
 
   .project-title{
-    font-size: 1.5rem;
-      font-family: $card-title-font;
-      color: $card-title-color;
+      font-size: 1.5rem;
       flex-grow: 1;
       order: -1;
-
-
-      @include breakpoint(phone){
-        justify-self: start;
-        font-weight: 500;
-        font-size: 1.25em;
-        align-self: center;
-      }
-
-      @include breakpoint(tablet-portrait){
-        justify-self: start;
-        font-weight: 500;
-        align-self: center;
-      }
-
-  }
-
-  @if($side == 'front'){
-      .project-site{
-        display: none;
-      }
-
-      .project-source{
-        display: none;
-      }
-
-      .info-button{
-        align-self: center;
-        order: 1;
-        svg{
-          @include svgIcon;
-        }
-      }
-  }
-
-  @if($side == 'back'){
-    .info-button{
+      justify-self: start;
+      font-weight: 500;
+      font-size: 1.5rem;
       align-self: center;
-      order: 2;
-      svg{
-        @include svgIcon;
+  }
+
+  .card-button{
+    svg{
+      @include svgIcon;
+    }
+    padding-left: 0.5rem;
+    align-self: center;
+    justify-self: end;
+
+    @if($side == 'front'){
+      visibility: hidden;
+      ~ .card-button ~ .card-button{
+          visibility: visible;
       }
     }
-
-      .project-source{
-        align-self: center;
-        padding-left: 0.5rem;
-        svg{
-          @include svgIcon;
-        }
-      }
-
-      .project-site{
-        padding-left: 0.5rem;
-        align-self: center;
-        svg{
-          @include svgIcon;
-        }
-      }
   }
+
   }
 }
 
+
 @mixin CardBodyStyle($side){
+  background-color: $darkColor;
+  padding: 0 15px;
   @if($side == 'front'){
     .portfolio-pic{
       background-size: contain;
@@ -108,13 +65,16 @@
       display: none;
     }
     .project-description{
-      color: $card-description-color;
       grid-area: project-description;
       justify-self: center;
-      font-family: $card-body-font;
       font-weight: 300;
       font-size: 0.80rem;
       padding-top: 0.35rem;
+
+
+      // @include breakpoint(tablet-portrait){
+      //   overflow-y: scroll;
+      // }
 
       @include breakpoint(tablet-landscape){
         overflow-y: scroll;

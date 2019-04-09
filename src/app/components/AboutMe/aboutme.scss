@@ -1,7 +1,7 @@
 @import '../../styles/mediaQueries.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/typography.scss';
 
-$darkColor: rgb(60, 60, 60);
-$lightColor: rgb(249, 249, 249);
 .aboutme-styles{
   min-height: 100vh;
   background-color: $darkColor;
@@ -20,8 +20,9 @@ $lightColor: rgb(249, 249, 249);
   }
 
   .mypic{
+    margin-top: 2rem;
     grid-area: profile-pic;
-    border: 1.5px solid rgb(249, 249, 249);
+    border: 1.5px solid $lightColor;
     border-radius: 50%;
     object-fit: none;
     object-position: 60% 20%;
@@ -39,16 +40,17 @@ $lightColor: rgb(249, 249, 249);
       width: $picSize;
       height: $picSize;
     }
+
+
 }
 
   .myName{
-    color: $lightColor;
     grid-area: profile-name;
     justify-self: center;
     align-self: center;
 
     @include breakpoint(phone){
-      font-size: 2.5rem;
+      font-size: 2.25rem;
     }
 
     @include breakpoint(tablet-portrait){
@@ -64,27 +66,24 @@ $lightColor: rgb(249, 249, 249);
     }
 
     @include breakpoint(desktop-large){
-      font-size: 12rem;
+      // font-size: 12rem;
+      font-size: 8.5rem;
+
     }
   }
 
   .profileAbout{
-    font-size: 1rem;
-    color: $lightColor;
+    padding: 2.5rem 0;
+    font-size: 1.5rem;
     text-align: justify;
 
     grid-area: profile-about;
     justify-self: center;
-    // align-self: center;
-    // padding: 1.25rem 1.25rem 0 1.25rem;
-    // padding: 0 1rem;
-    // font-size: 1.25rem;
 
-    // @include breakpoint(desktop-large){
-      // font-size: 2.5rem;
-      // font-size: 2vmin;
+    @include breakpoint(phone){
+      font-size: 1.25rem;
+    }
 
-    // }
   }
 
 }

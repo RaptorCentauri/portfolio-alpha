@@ -1,11 +1,14 @@
-@mixin SquareCard($side){
+@mixin SquareCard($side, $cols){
+  $dimens: calc(100vw/#{$cols} - 3rem);
+
+
   display: grid;
-  grid-template-rows: 2fr 8fr;
-  grid-template-columns:10fr;
+  grid-template-rows: 4rem 8fr;
+
   align-self: center;
   justify-self: center;
-  height: 325px;
-  width: 325px;
+  height: $dimens;
+  width: $dimens;
 
   @if $side == 'front'{
     grid-template-areas:
@@ -20,14 +23,17 @@
 }
 
 
+
 @mixin SquarePhone($side){
+  $cardDimension: calc(100vw - 2*1.5rem);
   display: grid;
-  grid-template-rows: 2fr 8fr;
-  grid-template-columns:10fr;
+  grid-template-rows: 4rem 8fr;
+
+  // grid-template-columns:10fr;
   align-self: center;
   justify-self: center;
-  height: 20vh;
-  width: 100vw;
+  min-height: $cardDimension;
+  width: $cardDimension;
 
   @if $side == 'front'{
     grid-template-areas:
@@ -42,50 +48,28 @@
 }
 
 
-@mixin SingleWide($side){
-  display: grid;
-  width: 100vw;
-
-  @if $side == 'front'{
-    height: 20vh;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-    "portfolio-pic nav-wrap";
-  }
-
-  @else if $side == 'back'{
-    min-height: 20vh;
-    grid-template-row: 1fr;
-    grid-template-areas:
-    "nav-wrap"
-    "project-description";
-  }
-}
 
 
 @mixin phone-layout($side){
-  @include SingleWide($side)
-  // padding: 0 1rem;
-  // @include SquarePhone($side)
-  // width: 100vw;
-  // height: 25vh
-
+  @include SquarePhone($side)
 }
 
 
 @mixin tablet-portrait-layout($side){
-  @include SingleWide($side)
+  @include SquareCard($side, 1)
+  // @include SquarePhone($side)
+
 }
 
 
 @mixin tablet-landscape-layout($side){
-  @include SquareCard($side)
+  @include SquareCard($side, 3)
 }
 
 @mixin desktop-layout($side){
-  @include SquareCard($side)
+  @include SquareCard($side, 4)
 }
 
 @mixin desktop-large-layout($side){
-  @include SquareCard($side)
+  @include SquareCard($side, 5)
 }
