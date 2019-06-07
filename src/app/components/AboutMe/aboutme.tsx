@@ -1,6 +1,8 @@
 import * as React from 'react';
 import "./aboutme.scss"
+//@ts-ignore
 import profilePic from './assets/images/profile_img.jpg'
+
 
 
 const AboutMe = (props) => {

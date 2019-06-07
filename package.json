@@ -19,13 +19,17 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleNameMapper": {
-      "\\.(css|scss|less)$": "identity-obj-proxy"
+      "\\.(css|scss|less|jpg|pdf|svg)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
-      "scss"
+      "scss",
+      "jpg",
+      "pdf",
+      "svg"
+
     ]
   },
   "repository": {
@@ -47,9 +51,12 @@
     "react-inlinesvg": "^0.8.4"
   },
   "devDependencies": {
+    "@testing-library/react": "^8.0.1",
     "@types/jest": "^24.0.13",
     "codecov": "^3.5.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
+    "jest-dom": "^3.4.0",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.17.2",
     "ts-jest": "^24.0.2",

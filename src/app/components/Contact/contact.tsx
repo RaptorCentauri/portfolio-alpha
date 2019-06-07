@@ -4,10 +4,15 @@ import * as React from 'react';
 
 import SVG from 'react-inlinesvg'
 
+//@ts-ignore
 import resume from './Resume.pdf'
+//@ts-ignore
 import resumeSVG from './resumePure.svg'
+//@ts-ignore
 import emailSVG from './emailPure.svg'
+//@ts-ignore
 import gitSVG from './github.svg'
+//@ts-ignore
 import linkedinSVG from './linkedin.svg'
 
 
