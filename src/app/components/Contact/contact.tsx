@@ -18,7 +18,7 @@ import linkedinSVG from './linkedin.svg'
 
 
 const Contact = (props) =>
-  <div className="contact-styles">
+  <footer>
     <a href="mailto:dave.leo.shilander@icloud.com?Subject=Hello%20again" target="_top">
       <SVG className={"email-icon"} src={emailSVG}></SVG>
     </a>
@@ -35,11 +35,7 @@ const Contact = (props) =>
       <SVG className={"git-icon"} src={linkedinSVG}></SVG>
     </a>
 
-
-
-
-
-  </div>
+  </footer>
 
 
 export default Contact;
