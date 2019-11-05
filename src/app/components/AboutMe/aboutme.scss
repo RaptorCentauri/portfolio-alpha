@@ -24,8 +24,8 @@
     grid-area: profile-pic;
     border: 1.5px solid $lightColor;
     border-radius: 50%;
-    object-fit: none;
-    object-position: 60% 20%;
+    object-fit: cover;
+    object-position: 60% 15%;
     justify-self: center;
     align-self: center;
 
